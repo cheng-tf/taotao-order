@@ -1,7 +1,6 @@
 package com.taotao.springboot.order.service.jedis;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
@@ -58,6 +57,11 @@ public class JedisClientPool implements JedisClient{
             e.printStackTrace();
             return false;
         }
+    }
+
+    @Override
+    public Boolean delete(String key) {
+        return redisTemplate.delete(key);
     }
 
     @Override
